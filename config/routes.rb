@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   # UPDATE
   patch '/rollercoasters/:id', to: "rollercoasters#update", as: "rollercoaster"
   
+  resources :riders
+
 end

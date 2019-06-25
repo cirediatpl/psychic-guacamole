@@ -10,12 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190625134023) do
+ActiveRecord::Schema.define(version: 20190625144226) do
 
   create_table "parks", force: :cascade do |t|
     t.string "name"
     t.string "location"
     t.integer "cost"
+  end
+
+  create_table "rider_rollercoasters", force: :cascade do |t|
+    t.integer "rider_id"
+    t.integer "rollercoaster_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["rider_id"], name: "index_rider_rollercoasters_on_rider_id"
+    t.index ["rollercoaster_id"], name: "index_rider_rollercoasters_on_rollercoaster_id"
+  end
+
+  create_table "riders", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "rollercoasters", force: :cascade do |t|
